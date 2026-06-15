@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model TemperatureReading {
+  id          String   @id @default(uuid())
+  temperature Float
+  state       String
+  coldMax     Float
+  hotMin      Float
+  capturedAt  DateTime @default(now())
+
+  @@map("temperature_readings")
+}
+
+model Threshold {
+  id        String   @id @default("singleton")
+  coldMax   Float    @default(22)
+  hotMin    Float    @default(35)
+  updatedAt DateTime @updatedAt
+
+  @@map("thresholds")
+}
