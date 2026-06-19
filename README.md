@@ -55,6 +55,14 @@ Single page with 3 sections:
 | `DATABASE_URL` | PostgreSQL connection string |
 | `FIXED_TEMPERATURE` | Fixed sensor value (empty = random) |
 
+### Deterministic mode
+
+To force a fixed temperature reading (useful for testing):
+
+```bash
+FIXED_TEMPERATURE=25.5 docker compose up --build
+```
+
 ---
 
 ## QA Exercise — Expectations

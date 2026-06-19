@@ -21,6 +21,7 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://admin:password@db:5432/temperature_sensor
+      FIXED_TEMPERATURE: ${FIXED_TEMPERATURE:-}
     depends_on:
       db:
         condition: service_healthy
